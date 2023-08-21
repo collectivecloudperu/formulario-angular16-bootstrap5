@@ -1,0 +1,143 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Mi Proyecto</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="https://nubecolectiva.com">Home</a>                    
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="https://blog.nubecolectiva.com">Blog</a>                    
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#">Contacto</a> 
+        </li>
+
+      </ul>
+      
+      <div class="saludo">            
+          <span id="txtsaludo"></span>
+          <img name="tiempo" width="15%" src="">            
+      </div>
+
+      <div class="btn-group btodt" role="group" aria-label="Basic example">                 
+        <button type="button" onclick="window.open('https://nubecolectiva.com/donaciones','_blank')" class="btn btn-warning">Donar</button>                         
+      </div>
+      
+    </div>
+  </div>
+</nav>
+
+    <br><br>
+
+
+    <!-- Formulario -->
+
+    <div class="container">
+
+      <div class="starter-template">
+
+        <div class="row">
+
+          <div class="col-md-12 mt5 contenedorformulario">
+
+              <h1>{{ title }}</h1>
+
+
+                <form [formGroup]="contacto" (ngSubmit)="onSubmit()">
+
+                  <div class="mb-3">
+
+                    <label>Nombres y Apellidos</label>
+                    <input type="text" formControlName="nya" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['nya'].errors}">
+                    <div *ngIf="submitted && f['nya'].errors?.['required']" class="invalid-feedback">
+                      <div *ngIf="f['nya'].errors?.['required']">Por favor, ingresa tus Nombres y Apellidos</div>
+                    </div>
+                    
+                  </div>
+
+                  <div class="mb-3">
+
+                    <label>Email</label>
+                    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['email'].errors}">
+                    <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                      <div *ngIf="f['email'].errors?.['required']">El email es obligatorio</div>
+                      <div *ngIf="f['email'].errors?.['required']">Por favor, ingresa un Email Válido</div>
+                    </div>
+                    
+                  </div>
+
+                  <div class="mb-3">
+
+                    <label>Asunto</label>
+                    <input type="text" formControlName="asunto" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['asunto'].errors}">
+                    <div *ngIf="submitted && f['asunto'].errors" class="invalid-feedback">
+                      <div *ngIf="f['asunto'].errors?.['required']">Por favor, ingresa tu Asunto</div>
+                    </div>
+                    
+                  </div>
+
+
+                  <div class="mb-3">
+
+                    <label>Postre</label>
+                    <select class="form-control" formControlName="postre" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['postre'].errors}">
+                      <option value="">Seleccionar</option>
+                      <option value="Crema Volteada">Crema Volteada</option>
+                      <option value="Gelatina de Fresa">Gelatina de Fresa</option>
+                      <option value="Keke de Naranja">Keke de Naranja</option>
+                      <option value="Torta de Chocolate">Torta de Chocolate</option>
+                      <option value="Pie de Manzana">Pie de Manzana</option>                    
+                      
+                    </select> 
+
+                    <div *ngIf="submitted && f['postre'].errors" class="invalid-feedback">
+                      <div *ngIf="f['postre'].errors?.['required']">Por favor, selecciona un Postre</div>
+                    </div>                   
+                    
+                  </div>
+
+                  <div class="mb-3">
+
+                    <label>Mensaje</label>
+                    <textarea class="form-control" formControlName="mensaje" rows="3" [ngClass]="{ 'is-invalid': submitted && f['mensaje'].errors}"></textarea>
+                    <div *ngIf="submitted && f['mensaje'].errors" class="invalid-feedback">
+                      <div *ngIf="f['mensaje'].errors?.['required']">Por favor, ingresa tu Mensaje</div>
+                    </div> 
+                    
+                  </div>
+
+
+                  <div class="form-group">
+
+                    <button class="btn btn-primary">Aceptar</button>
+                    
+                  </div>
+
+                 
+               </form>       
+
+
+
+
+          </div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+
+
+
+    <section class="credito">
+        <div align="center">
+            Desarrollado por <a href="http://www.nubecolectiva.com" target="_blank">Nube Colectiva</a>
+        </div> 
+    </section>
